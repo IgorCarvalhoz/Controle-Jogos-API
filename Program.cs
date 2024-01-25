@@ -31,4 +31,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
+// Adicionar uma aba para fazer avaliação e Review
+//Estilizar as avaliações com CSS e HTML
