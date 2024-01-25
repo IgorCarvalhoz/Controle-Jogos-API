@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Controle_Jogos_API.Context;
 using Controle_Jogos_API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Update.Internal;
 using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Controle_Jogos_API.Controllers
 {
@@ -44,6 +46,36 @@ namespace Controle_Jogos_API.Controllers
             _context.Jogos.Remove(jogo);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Editar(int id){
+            var jogo = _context.Jogos.Find(id);
+            if(jogo == null){
+                return NotFound();
+            }
+            return View(jogo);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Editar (Jogo jogo){
+            var jogoBanco = _context.Jogos.Find(jogo.ID);
+            if (jogoBanco == null){
+                return NotFound();
+            }
+            else{
+                jogoBanco.Nome = jogo.Nome;
+                jogoBanco.HorasJogadas = jogo.HorasJogadas;
+                jogoBanco.AnoLancamento = jogo.AnoLancamento;
+                jogoBanco.AnoJogado = jogo.AnoJogado;
+                jogoBanco.Finalizado = jogo.Finalizado;
+                jogoBanco.UltimaAtualizacao = jogo.UltimaAtualizacao;
+                _context.Jogos.Update(jogoBanco);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }         
+        }
+        public IActionResult Detalhes(int id){
+            var jogo = _context.Jogos.Find(id);
+            return View(jogo);
         }
     }
 }

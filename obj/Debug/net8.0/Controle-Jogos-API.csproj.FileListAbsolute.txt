@@ -134,3 +134,4 @@ D:\Projeto\Controle-Jogos-API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Se
 D:\Projeto\Controle-Jogos-API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Projeto\Controle-Jogos-API\obj\Debug\net8.0\Controle-Jogos-API.csproj.AssemblyReference.cache
 D:\Projeto\Controle-Jogos-API\obj\Debug\net8.0\Controle-Jogos-API.csproj.CopyComplete
+D:\Projeto\Controle-Jogos-API\obj\Debug\net8.0\Controle-Jogos-API.sourcelink.json

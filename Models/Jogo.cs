@@ -13,5 +13,6 @@ namespace Controle_Jogos_API.Entities
         public string? AnoLancamento {get;set;}
         public int AnoJogado {get; set;}
         public bool Finalizado{get; set;}
+        public string UltimaAtualizacao{get; set;} = DateTime.Now.ToString("dd-MM-yy");
     }
 }

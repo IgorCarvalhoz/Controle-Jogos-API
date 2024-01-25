@@ -32,4 +32,3 @@ app.MapControllerRoute(
 
 app.Run();
 
-//Adicionar a aba Editar, detalhes e adicionar filtro
