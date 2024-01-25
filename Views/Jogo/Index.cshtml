@@ -1,0 +1,64 @@
+@model IEnumerable<Controle_Jogos_API.Entities.Jogo>
+    @{
+        ViewData["Title"] = "Lista de Jogos";
+    }
+    <h1>Controle de Jogos</h1>
+    <p>
+        <a asp-action="Adicionar" type="button" class= "btn btn-outline-primary btn-sm">Adicionar Novo Jogo</a>
+    </p>
+    <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorasJogadas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnoLancamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnoJogado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Finalizado)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any()){
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.HorasJogadas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.AnoLancamento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.AnoJogado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Finalizado)
+                        </td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id= "@item.ID" style ="color:grey">Editar</a> |
+                            <a asp-action="Detalhes" asp-route-id= "@item.ID" style ="color:grey">Detalhes</a> |
+                            <a asp-action="Remover" asp-route-id= "@item.ID" style ="color:grey">Remover</a>
+                        </td>
+                    </tr>
+                }
+            }
+    </tbody>
+</table>

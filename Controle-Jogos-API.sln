@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controle-Jogos-API", "Controle-Jogos-API.csproj", "{2141A6A7-E29D-4D0D-8CFC-0AD35335E87B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2141A6A7-E29D-4D0D-8CFC-0AD35335E87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2141A6A7-E29D-4D0D-8CFC-0AD35335E87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2141A6A7-E29D-4D0D-8CFC-0AD35335E87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2141A6A7-E29D-4D0D-8CFC-0AD35335E87B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAEFD440-4DED-4DF2-A263-B377A6D499EF}
+	EndGlobalSection
+EndGlobal
