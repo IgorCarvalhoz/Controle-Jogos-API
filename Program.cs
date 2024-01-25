@@ -31,3 +31,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+//Adicionar a aba Editar, detalhes e adicionar filtro
