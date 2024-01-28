@@ -1,0 +1,29 @@
+@model Controle_Jogos_API.Entities.Jogo
+@{
+    ViewData["Title"] = "Avaliacao";
+}
+<h1>Avaliar Jogos</h1>
+<div class = "row">
+    <div class = "col-md-4">
+        <form asp-action="Avaliacao">
+            <div class ="form-group">
+                <input type="hidden" asp-for="ID" />
+                <input type="hidden" asp-for="HorasJogadas" />
+                <input type="hidden" asp-for="AnoLancamento" />
+                <input type="hidden" asp-for="AnoJogado" />
+                <input type="hidden" asp-for="Finalizado" />
+                <input type="hidden" asp-for="UltimaAtualizacao" />
+                <label asp-for = "Nome" class = "control-label"></label>
+                <input asp-for ="Nome" class="form-control" readonly ="readonly"/>
+                <label asp-for = "Avaliar" class = "control-label"></label>
+                <input asp-for ="Avaliar" class="form-control"/>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-outline-success btn-sm">Avaliar Jogo</button>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index" type="button" class="btn btn-outline-secondary btn-sm">Voltar</a> 
+</div>

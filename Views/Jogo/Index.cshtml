@@ -5,7 +5,6 @@
     <h1>Controle de Jogos</h1>
     <p>
         <a asp-action="Adicionar" type="button" class= "btn btn-outline-primary btn-sm">Adicionar Novo Jogo</a>
-        <a asp-action="Avaliar" type="button" class= "btn btn-outline-primary btn-sm">Avaliar Jogos</a>
     </p>
     <table class="table table-bordered table-striped">
     <thead>
@@ -24,6 +23,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AnoJogado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avaliar)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Finalizado)
@@ -51,10 +53,15 @@
                             @Html.DisplayFor(model => item.AnoJogado)
                         </td>
                         <td>
+                            @Html.DisplayFor(model => item.Avaliar)
+                        </td>
+                        
+                        <td>
                             @Html.DisplayFor(model => item.Finalizado)
                         </td>
                         <td>
                             <a asp-action="Editar" asp-route-id= "@item.ID" style ="color:grey">Editar</a> |
+                            <a asp-action="Avaliacao" asp-route-id= "@item.ID" style ="color:grey">Avaliar Jogo</a> |
                             <a asp-action="Detalhes" asp-route-id= "@item.ID" style ="color:grey">Detalhes</a> |
                             <a asp-action="Remover" asp-route-id= "@item.ID" style ="color:grey">Remover</a>
                         </td>

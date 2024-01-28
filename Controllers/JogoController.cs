@@ -77,12 +77,19 @@ namespace Controle_Jogos_API.Controllers
             var jogo = _context.Jogos.Find(id);
             return View(jogo);
         }
-        public IActionResult Avaliar (){
-            return View();
+        public IActionResult Avaliacao(int id){
+            var jogo = _context.Jogos.Find(id);
+            return View(jogo);
         }
+        [HttpPost, ActionName("Avaliacao")]
         public IActionResult Avaliar(int id){
             var jogo = _context.Jogos.Find(id);
-            return View();
+            if (jogo is null){
+                return NotFound();
+            }
+            _context.Jogos.Add(jogo);
+            _context.SaveChanges();
+            return View(nameof(Index));
         }
     }
 }
