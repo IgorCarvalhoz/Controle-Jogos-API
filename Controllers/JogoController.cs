@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Controle_Jogos_API.Context;
 using Controle_Jogos_API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
@@ -79,20 +80,32 @@ namespace Controle_Jogos_API.Controllers
             var jogo = _context.Jogos.Find(id);
             return View(jogo);
         }
-        public IActionResult Avaliacao(int id){
-            var jogo = _context.Jogos.Find(id);
-            return View(jogo);
-        }
-        [HttpPost, ActionName("Avaliacao")]
-        public IActionResult Avaliar(int id, string avaliacao){
+         public IActionResult Avaliacao(int id){
             var jogo = _context.Jogos.Find(id);
             if (jogo is null){
                 return NotFound();
             }
-            jogo.Avaliar = avaliacao;
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index)); 
+            return View(jogo);
+        }
+        [HttpPost]
+            public IActionResult Avaliacao(int id, string avaliacao)
+            {
+                var jogo = _context.Jogos.Find(id);
+                if (jogo == null)
+                {
+                    return NotFound();
+                }
+                jogo.Avaliar = avaliacao;
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index)); 
+            }
+        [HttpGet, ActionName("Avaliacao")]
+        public IActionResult AvaliacaoLista()
+        {
+            var jogosAvaliados = _context.Jogos.Where(j => j.Avaliar != null).ToList();
+            return View(jogosAvaliados);
         }
     }
 }
+
     
