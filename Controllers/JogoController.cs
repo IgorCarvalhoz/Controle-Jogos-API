@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using Controle_Jogos_API.Context;
 using Controle_Jogos_API.Entities;
@@ -68,6 +69,7 @@ namespace Controle_Jogos_API.Controllers
                 jogoBanco.AnoJogado = jogo.AnoJogado;
                 jogoBanco.Finalizado = jogo.Finalizado;
                 jogoBanco.UltimaAtualizacao = jogo.UltimaAtualizacao;
+                jogoBanco.Avaliar = jogo.Avaliar;
                 _context.Jogos.Update(jogoBanco);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
@@ -82,14 +84,14 @@ namespace Controle_Jogos_API.Controllers
             return View(jogo);
         }
         [HttpPost, ActionName("Avaliacao")]
-        public IActionResult Avaliar(int id){
+        public IActionResult Avaliar(int id, string avaliacao){
             var jogo = _context.Jogos.Find(id);
             if (jogo is null){
                 return NotFound();
             }
-            _context.Jogos.Add(jogo);
+            jogo.Avaliar = avaliacao;
             _context.SaveChanges();
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index)); 
         }
     }
 }
