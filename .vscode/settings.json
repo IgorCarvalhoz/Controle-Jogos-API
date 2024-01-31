@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net8.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/000b1c54-b700-479c-95db-9de357a89d3d/resourceGroups/SistemaMVC/providers/Microsoft.Web/sites/sistemajogoMVC"
+}
